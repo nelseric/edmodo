@@ -1,3 +1,9 @@
 import { combineReducers } from 'redux';
 
-export default combineReducers({});
+import assignments from './assignments';
+import assignment_submissions from './assignment_submissions';
+
+export default combineReducers({
+  assignments,
+  assignment_submissions,
+});
