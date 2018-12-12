@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as AssignmentActions from '../actions/assignments';
 
-import { Route } from 'react-router';
+import { Route } from 'react-router-dom';
 
-import { Container, Row, Col, Button } from 'reactstrap';
 import AssignmentsSidebar from './AssignmentsSidebar';
-import AssignmentDetail from './AssignmentDetail';
+
+import AssignmentPage from './AssignmentPage';
 
 import './App.scss';
 
@@ -23,16 +23,16 @@ export class App extends Component {
 
   render() {
     return (
-      <Container>
-        <Row>
-          <Col sm="2">
+      <div className="container">
+        <div className="row">
+          <div className="col-2">
             <AssignmentsSidebar assignments={this.props.assignments} />
-          </Col>
-          <Col sm="10">
-            <Route path="/:assignmentId" component={AssignmentDetail} />
-          </Col>
-        </Row>
-      </Container>
+          </div>
+          <div className="col-10">
+            <Route path="/:assignmentId" component={AssignmentPage} />
+          </div>
+        </div>
+      </div>
     );
   }
 }

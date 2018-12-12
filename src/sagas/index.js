@@ -15,7 +15,7 @@ function* fetchAssignments(action) {
 
 function* fetchAssignmentSubmissions(action) {
   try {
-    const assignments = yield call(api.fetchAssignments);
+    const assignments = yield call(api.fetchAssignmentSubmissions, action.assignment);
 
     yield put({ type: Types.FETCH_ASSIGNMENT_SUBMISSIONS_SUCCESS, payload: assignments });
   } catch (err) {
