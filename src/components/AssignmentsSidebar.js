@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+import moment from 'moment';
 
 class AssignmentsSidebar extends React.Component {
   static propTypes = {
@@ -17,15 +19,17 @@ class AssignmentsSidebar extends React.Component {
 
   render() {
     return (
-      <div>
-        <h3>Assigments</h3>
-        <ul>
-          {this.props.assignments.map(assignment => (
-            <li key={assignment.id}>
-              <Link to={`/${assignment.id}`}>{assignment.title}</Link>
-            </li>
-          ))}
-        </ul>
+      <div className="buttons">
+        {this.props.assignments.map(assignment => (
+          <NavLink
+            key={assignment.id}
+            className="button is-fullwidth"
+            activeClassName="is-primary"
+            to={`/${assignment.id}`}
+          >
+            {assignment.title} Due {moment(assignment.due_at).format('MMM Do, YYYY')}
+          </NavLink>
+        ))}
       </div>
     );
   }

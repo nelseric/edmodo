@@ -1,1 +1,8 @@
-@import '~bootstrap/scss/bootstrap.scss';
+@charset "utf-8";
+
+@import '~bulma/bulma.sass';
+
+.tabs li a.is-active {
+  border-bottom-color: #3273dc;
+  color: #3273dc;
+}

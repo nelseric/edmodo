@@ -20,14 +20,20 @@ class AssignmentPage extends React.Component {
 
     return (
       <div>
-        <nav className="nav nav-tabs">
-          <NavLink exact className="nav-link" to={`/${assignmentId}`}>
-            Assignment
-          </NavLink>
-          <NavLink exact className="nav-link" to={`/${assignmentId}/submissions`}>
-            Submissions
-          </NavLink>
-        </nav>
+        <div className="tabs">
+          <ul>
+            <li>
+              <NavLink exact to={`/${assignmentId}`} activeClassName="is-active">
+                Assignment
+              </NavLink>
+            </li>
+            <li>
+              <NavLink exact to={`/${assignmentId}/submissions`} activeClassName="is-active">
+                Submissions
+              </NavLink>
+            </li>
+          </ul>
+        </div>
         <Switch>
           <Route exact path="/:assignmentId" component={AssignmentDetail} />
           <Route path="/:assignmentId/submissions" component={Submissions} />

@@ -12,13 +12,23 @@ class Submissions extends React.Component {
         assignmentId: PropTypes.string,
       }),
     }),
+    assignment: PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+      description: PropTypes.string,
+    }),
   };
 
   render() {
+    const { assignment } = this.props;
+    if (!assignment) {
+      return null;
+    }
+
     return (
       <div>
-        <h3>Assignment</h3>
-        <Inspector data={this.props.assignment} />
+        <h1 className="title">{assignment.title}</h1>
+        <p>{assignment.description}</p>
       </div>
     );
   }

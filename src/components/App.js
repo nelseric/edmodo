@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as AssignmentActions from '../actions/assignments';
 
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import AssignmentsSidebar from './AssignmentsSidebar';
 
 import AssignmentPage from './AssignmentPage';
+
+import SelectAnAssignment from './SelectAnAssignment';
 
 import './App.scss';
 
@@ -23,13 +25,18 @@ export class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-2">
-            <AssignmentsSidebar assignments={this.props.assignments} />
-          </div>
-          <div className="col-10">
-            <Route path="/:assignmentId" component={AssignmentPage} />
+      <div className="section">
+        <div className="container">
+          <div className="columns">
+            <div className="column is-one-quarter">
+              <AssignmentsSidebar assignments={this.props.assignments} />
+            </div>
+            <div className="column">
+              <Switch>
+                <Route path="/:assignmentId" component={AssignmentPage} />
+                <Route path="/" component={SelectAnAssignment} />≈
+              </Switch>
+            </div>
           </div>
         </div>
       </div>
