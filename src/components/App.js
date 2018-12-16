@@ -12,6 +12,8 @@ import AssignmentPage from './AssignmentPage';
 
 import SelectAnAssignment from './SelectAnAssignment';
 
+import CreateAssignment from './CreateAssignment';
+
 import './App.scss';
 
 export class App extends Component {
@@ -33,6 +35,7 @@ export class App extends Component {
             </div>
             <div className="column">
               <Switch>
+                <Route path="/create" component={CreateAssignment} />
                 <Route path="/:assignmentId" component={AssignmentPage} />
                 <Route path="/" component={SelectAnAssignment} />≈
               </Switch>

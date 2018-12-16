@@ -1,0 +1,14 @@
+.assignment {
+  display: block;
+  border: 1px solid #3273dc;
+  border-radius: 3px;
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  width: 100%;
+}
+
+.assignment.active {
+  border-color: black;
+  color: black;
+}
