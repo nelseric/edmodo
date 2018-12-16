@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as AssignmentActions from '../actions/assignments';
 
-import Inspector from 'react-inspector';
+import SubmissionDetail from './SubmissionDetail';
 
 class Submissions extends React.Component {
   static propTypes = {
@@ -32,12 +32,9 @@ class Submissions extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <h3>Submissions</h3>
-        <Inspector data={this.props} />
-      </div>
-    );
+    return this.props.submissions.map(submission => (
+      <SubmissionDetail key={submission.id} submission={submission} />
+    ));
   }
 }
 

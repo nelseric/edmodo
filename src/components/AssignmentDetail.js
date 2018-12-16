@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
-import Inspector from 'react-inspector';
-
 class Submissions extends React.Component {
   static propTypes = {
     match: PropTypes.shape({
