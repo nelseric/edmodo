@@ -1,4 +1,20 @@
+# Edmodo Application Project
+
+## Setting the API Key
+
+Set the environment variable `REACT_APP_API_KEY`, or use a .env file, see `.env.sample`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Setup
+
+Install packages with yarn or npm
+
+`yarn`
+
+or
+
+`npm install`
 
 ## Available Scripts
 
