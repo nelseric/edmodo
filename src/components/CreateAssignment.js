@@ -3,6 +3,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as AssignmentActions from '../actions/assignments';
+import { maxAssignmentId } from '../selectors';
 
 import AssignmentForm from './forms/AssignmentForm';
 
@@ -10,7 +11,7 @@ class CreateAssignment extends React.Component {
   closeModal = () => this.props.history.push('/');
 
   onSubmit = assignment => {
-    assignment.id = 1;
+    assignment.id = this.props.maxAssignmentId + 1;
 
     this.props.createAssignment(assignment);
 
@@ -27,7 +28,7 @@ class CreateAssignment extends React.Component {
             <button className="delete" aria-label="close" onClick={this.closeModal} />
           </header>
           <section className="modal-card-body">
-            <AssignmentForm onSubmit={this.onSubmit} />
+            <AssignmentForm onSubmit={this.onSubmit} nextId={this.props.maxAssignmentId} />
           </section>
         </div>
       </div>
@@ -35,6 +36,6 @@ class CreateAssignment extends React.Component {
   }
 }
 export default connect(
-  () => ({}),
+  state => ({ maxAssignmentId: maxAssignmentId(state) }),
   AssignmentActions
 )(withRouter(CreateAssignment));
